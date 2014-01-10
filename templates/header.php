@@ -66,7 +66,7 @@
 
 	<div class="container">
 		<?php if (gp_notice('error')): ?>
-			<div class="lert alert-danger">
+			<div class="alert alert-danger">
 				<?php echo gp_notice( 'error' ); //TODO: run kses on notices ?>
 			</div>
 		<?php endif; ?>
