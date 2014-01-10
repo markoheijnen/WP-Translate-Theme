@@ -1,5 +1,7 @@
 <?php
 
+include 'hacks.php';
+
 class GP_Bootstrap_Theme extends GP_Plugin {
 	public $id = 'bootstrap_theme';
 	public $version = '1.0';
