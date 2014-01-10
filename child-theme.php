@@ -18,6 +18,9 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 
 		$this->add_action( 'wp_default_styles' );
 		$this->add_action( 'wp_print_styles' );
+
+		$this->add_action( 'wp_default_scripts' );
+		$this->add_action( 'wp_print_scripts' );
 	}
 
 	public function plugins_loaded() {
@@ -42,6 +45,14 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 
 	public function wp_print_styles() {
 		wp_enqueue_style( 'base' );
+	}
+
+	public function wp_default_scripts( &$scripts ) {
+		$scripts->add( 'bootstrap', gp_url_base_root() . 'plugins/child-theme/templates/js/bootstrap.min.js', array(), $this->version );
+	}
+
+	public function wp_print_scripts() {
+		wp_enqueue_script( 'bootstrap' );
 	}
 
 }
