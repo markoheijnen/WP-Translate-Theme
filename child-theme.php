@@ -1,7 +1,7 @@
 <?php
 
-class GP_Child_Theme extends GP_Plugin {
-	public $id = 'child_theme';
+class GP_Bootstrap_Theme extends GP_Plugin {
+	public $id = 'bootstrap_theme';
 	public $version = '1.0';
 
 	private $child_path;
@@ -44,4 +44,4 @@ class GP_Child_Theme extends GP_Plugin {
 
 }
 
-GP::$plugins->child_theme = new GP_Child_Theme;
+GP::$plugins->bootstrap_theme = new GP_Bootstrap_Theme;
