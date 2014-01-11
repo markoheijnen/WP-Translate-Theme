@@ -48,7 +48,7 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	}
 
 	public function wp_default_scripts( &$scripts ) {
-		$scripts->add( 'bootstrap', gp_url_base_root() . 'plugins/child-theme/templates/js/bootstrap.min.js', array(), $this->version );
+		$scripts->add( 'bootstrap', gp_url_base_root() . 'plugins/child-theme/templates/js/bootstrap.min.js', array('jquery'), $this->version );
 	}
 
 	public function wp_print_scripts() {
