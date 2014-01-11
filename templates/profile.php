@@ -19,17 +19,17 @@ if ( ! is_array( $default_sort ) ) {
 
 		<h2><?php _e( "Profile" ); ?></h2>
 
-		<form action="" method="post" class="form-horizontal" role="form">
+		<form action="" method="post" class="form-profile form-horizontal" role="form">
 			<div class="form-group">
-				<label for="per_page" class="col-sm-3 control-label"><?php _e( "Number of items per page:" ); ?></label>
+				<label for="per_page" class="col-sm-4 col-md-3 control-label"><?php _e( "Number of items per page:" ); ?></label>
 				<div class="col-sm-4">
 					<input type="number" id="per_page" class="form-control" name="per_page" value="<?php echo $per_page ?>" />
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="default_sort[by]" class="col-sm-3 control-label"><?php _e("Default Sort By:") ?></label>
-				<div class="col-sm-4">
+				<label for="default_sort[by]" class="col-sm-4 col-md-3 control-label"><?php _e("Default Sort By:") ?></label>
+				<div class="col-sm-8">
 					<div class="radio">
 					<?php
 					echo gp_radio_buttons(
@@ -52,8 +52,8 @@ if ( ! is_array( $default_sort ) ) {
 
 
 			<div class="form-group">
-				<label for="default_sort[how]" class="col-sm-3 control-label"><?php _e("Default Sort Order:") ?></label>
-				<div class="col-sm-4">
+				<label for="default_sort[how]" class="col-sm-4 col-md-3 control-label"><?php _e("Default Sort Order:") ?></label>
+				<div class="col-sm-8">
 					<div class="radio">
 					<?php
 					echo gp_radio_buttons(
@@ -72,7 +72,7 @@ if ( ! is_array( $default_sort ) ) {
 			<br />
 
 			<div class="form-group">
-				<div class="col-sm-offset-3 col-sm-7">
+				<div class="col-sm-offset-4 col-md-offset-3 col-sm-8">
 					<button type="submit" class="btn btn-primary"><?php esc_attr_e("Change Settings"); ?></button>
 				</div>
 			</div>
