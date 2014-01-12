@@ -7,16 +7,16 @@ gp_breadcrumb( array(
 gp_tmpl_header();
 ?>
 
-<?php if ($errors): ?>
-	<?php _e('There were some errors:'); ?>
-	<pre>
-		<?php echo implode("\n", $errors); ?>
-	</pre>
-<?php
-	else:
-		echo $success_message;
-	endif;
-?>
+		<?php if ( $errors ): ?>
+			<?php _e('There were some errors:'); ?>
+			<div class="alert alert-danger">
+				<?php echo implode( "\n", $errors ); ?>
+			</div>
+		<?php
+			else:
+				echo '<div class="alert alert-info">' . $success_message . '</div>';
+			endif;
+		?>
 
 <?php
 // TODO: deny access to scripts folder
@@ -34,7 +34,8 @@ if ( $show_htaccess_instructions ): ?>
 		&lt;/IfModule&gt;
 		# END GlotPress
 		</pre>
-		<?php _e('<strong>The default username is <code>admin</code>, whose password is simply <code>a</code>.</strong>'); ?>
+
+		<?php _e( '<strong>The default username is <code>admin</code>, whose password is simply <code>a</code>.</strong>' ); ?>
 	</p>
 <?php endif; ?>
 
