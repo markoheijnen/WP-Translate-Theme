@@ -21,8 +21,7 @@ gp_tmpl_header();
 <?php
 // TODO: deny access to scripts folder
 if ( $show_htaccess_instructions ): ?>
-	<p>
-		<?php _e('Please add this to your <code>.htaccess</code> file:'); ?>
+	<p><?php _e('Please add this to your <code>.htaccess</code> file:'); ?></p>
 		<pre>
 		# BEGIN GlotPress
 		&lt;IfModule mod_rewrite.c&gt;
@@ -35,8 +34,9 @@ if ( $show_htaccess_instructions ): ?>
 		# END GlotPress
 		</pre>
 
-		<?php _e( '<strong>The default username is <code>admin</code>, whose password is simply <code>a</code>.</strong>' ); ?>
-	</p>
+	<p><strong>
+		<?php _e( 'The default username is <code>admin</code>, whose password is simply <code>a</code>.' ); ?>
+	</strong></p>
 <?php endif; ?>
 
 <?php gp_tmpl_footer(); ?>
