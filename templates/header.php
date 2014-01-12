@@ -2,11 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width">
-		<title><?php echo gp_title(); ?></title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width">
+	<title><?php echo gp_title(); ?></title>
 
-		<?php gp_head(); ?>
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js" defer></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/respond.js" defer></script>
+	<![endif]-->
+
+	<?php gp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
