@@ -2,10 +2,9 @@ body {
 	padding-top: 70px;
 }
 
-.breadcrumb {
-	margin-bottom: 0;
+#content h2:first-child {
+	margin-top: 0;
 }
-
 
 #gp-footer p {
 	background: #f5f5f5;
