@@ -49,8 +49,8 @@ body {
 }
 
 
-/* PROFILE */
-.form-profile .control-label {
+/* FORMS */
+.form-left .control-label {
 	text-align: left;
 }
 

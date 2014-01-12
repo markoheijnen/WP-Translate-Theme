@@ -19,7 +19,7 @@ if ( ! is_array( $default_sort ) ) {
 
 		<h2><?php _e( "Profile" ); ?></h2>
 
-		<form action="" method="post" class="form-profile form-horizontal" role="form">
+		<form action="" method="post" class="form-left form-horizontal" role="form">
 			<div class="form-group">
 				<label for="per_page" class="col-sm-4 col-md-3 control-label"><?php _e( "Number of items per page:" ); ?></label>
 				<div class="col-sm-4">
