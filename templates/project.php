@@ -58,7 +58,7 @@ gp_tmpl_header();
 								<?php if ( $set->current_count && $set->current_count >= $set->all_count * 0.9 ):
 										$percent = floor( $set->current_count / $set->all_count * 100 );
 								?>
-									<span class="bubble morethan90"><?php echo $percent; ?>%</span>
+									<span class="label label-success"><?php echo $percent; ?>%</span>
 								<?php endif; ?>
 							</td>
 							<td class="stats percent"><?php echo $set->percent_translated; ?></td>
