@@ -8,7 +8,6 @@ class GP_Bootstrap_Theme_Hacks {
 		$breadcrumbs = str_replace( '<span class="separator">&rarr;</span>', '</li><li>', $breadcrumbs );
 		$breadcrumbs = str_replace( '<span class="breadcrumb"></li>', '<ol class="breadcrumb">', $breadcrumbs );
 		$breadcrumbs = str_replace( '</a></span>', '</a> &nbsp;', $breadcrumbs );
-		$breadcrumbs = str_replace( 'active bubble', 'active bubble label label-primary', $breadcrumbs );
 		$breadcrumbs = $breadcrumbs . '</ol>';
 		
 		echo $breadcrumbs;

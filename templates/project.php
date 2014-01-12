@@ -8,7 +8,7 @@ wp_enqueue_script('tablesorter');
 $edit_link = gp_link_project_edit_get( $project, __('(edit)') );
 $parity = gp_parity_factory();
 
-if ( $project->active ) add_filter( 'gp_breadcrumb', lambda( '$s', '$s . "<span class=\\"active bubble\\">' . __('Active') . '</span>"' ) );
+if ( $project->active ) add_filter( 'gp_breadcrumb', lambda( '$s', '$s . "<span class=\\"active label label-success\\">' . __('Active') . '</span>"' ) );
 
 gp_tmpl_header();
 ?>
