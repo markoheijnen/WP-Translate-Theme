@@ -35,7 +35,7 @@ gp_tmpl_header();
 
 			<?php if ( $translation_sets ): ?>
 			<div id="translation-sets" class="<?php if ( $sub_projects ) { echo 'col-sm-8 col-sm-push-4'; } else { echo 'col-md-12'; } ?>">
-				<h3><? _e('Translations');?></h3>
+				<h3><?php _e('Translations'); ?></h3>
 				<table class="translation-sets tablesorter table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
