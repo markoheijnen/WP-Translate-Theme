@@ -8,8 +8,8 @@
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js" defer></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/respond.js" defer></script>
+		<script src="<?php echo gp_url_base_root(); ?>plugins/child-theme/templates/js/html5shiv.js" defer></script>
+		<script src="<?php echo gp_url_base_root(); ?>plugins/child-theme/templates/js/respond.js" defer></script>
 	<![endif]-->
 
 	<?php gp_head(); ?>
