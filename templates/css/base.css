@@ -309,16 +309,6 @@ table.translation-sets .stats a {
     font-size: 0.7em;
 }
 
-.actionlist {
-	margin-left: 1em;
-}
-
-.actionlist a, .actionlist a:link, .actionlist a:visited {
-    color: #4D56DC;
-}
-.actionlist a:active {
-    color: red;
-}
 .permissions .user {
     font-weight: bold;
 }

@@ -175,7 +175,7 @@ $i = 0;
 
 		</div>
 
-		<p class="clear actionlist secondary">
+		<p class="clear secondary">
 			<?php
 				$footer_links = array();
 				if ( $can_approve ) {

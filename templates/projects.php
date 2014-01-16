@@ -15,7 +15,7 @@ gp_tmpl_header();
 		</ul>
 
 		<?php if ( GP::$user->current()->can( 'write', 'project' ) ): ?>
-			<p class="actionlist secondary"><?php gp_link( gp_url_project( '-new' ), __('Create a New Project'), array( 'class' => 'btn btn-primary' ) ); ?></p>
+			<p class="secondary"><?php gp_link( gp_url_project( '-new' ), __('Create a New Project'), array( 'class' => 'btn btn-primary' ) ); ?></p>
 		<?php endif; ?>
 
 <?php gp_tmpl_footer(); ?>
