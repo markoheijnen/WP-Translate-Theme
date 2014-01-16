@@ -284,13 +284,7 @@ dl.filters-expanded dt p:first-child, dl.filters-expanded dd p:first-child {
 .no-js .hide-if-no-js {
     display: none;
 }
-.clearfix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
+
 table.translation-sets .stats a {
     color: black;
     text-decoration: none;
