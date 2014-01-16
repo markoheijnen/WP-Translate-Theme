@@ -223,26 +223,6 @@ table.translations a.action {
 	padding: 0.5em;    
 }
 
-span.active {
-	background-color: yellow;
-	color: #555;
-	font-weight: bold;
-}
-h1 span.active {
-	font-size: 75%;	
-	float: left;
-    -webkit-border-radius: 0.4em;
-    -moz-border-radius: 0.4em;
-	margin-top: 17px;
-	margin-left: .5em;
-}
-ul a.edit, dt a.edit {
-    background-color: #777;    
-}
-ul a.delete {
-    background-color: #FF4F50;
-}
-
 form.filters-toolbar > div {
 	line-height: 2em;
 }
