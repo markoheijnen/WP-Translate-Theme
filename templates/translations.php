@@ -42,7 +42,7 @@ $i = 0;
 			<?php echo GP_Bootstrap_Theme_Hacks::gp_pagination( $page, $per_page, $total_translations_count ); ?>
 		</div>
 
-		<form id="upper-filters-toolbar" class="filters-toolbar" action="" method="get" accept-charset="utf-8">
+		<form id="upper-filters-toolbar" class="filters-toolbar clearfix" action="" method="get" accept-charset="utf-8">
 			<div>
 			<a href="#" class="revealing filter"><?php _e('Filter &darr;'); ?></a> <span class="separator">&bull;</span>
 			<a href="#" class="revealing sort"><?php _e('Sort &darr;'); ?></a> <strong class="separator">&bull;</strong>
@@ -133,7 +133,8 @@ $i = 0;
 				<dd><input type="submit" value="<?php echo esc_attr(__('Sort')); ?>" name="sorts" /></dd>
 			</dl>
 		</form>
-		<table id="translations" class="translations clear<?php if( isset( $locale->rtl ) && $locale->rtl ) { echo ' translation-sets-rtl'; } ?>">
+
+		<table id="translations" class="translations table table-bordered<?php if( isset( $locale->rtl ) && $locale->rtl ) { echo ' translation-sets-rtl'; } ?>">
 			<thead>
 			<tr>
 				<?php if ( $can_approve ) : ?><th><input type="checkbox" /></th><?php endif; ?>
@@ -148,7 +149,7 @@ $i = 0;
 		?>
 		<?php endforeach; ?>
 		<?php
-			if ( !$translations ):
+			if ( ! $translations ):
 		?>
 			<tr><td colspan="<?php echo $can_approve ? 5 : 4; ?>"><?php _e('No translations were found!'); ?></td></tr>
 		<?php

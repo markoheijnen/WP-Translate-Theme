@@ -144,9 +144,6 @@ table.translations a.action {
 	font-size: 80%;
 	margin: 0.25em;
 }
-.clear {
-	clear: both;
-}
 .half {
 	float: left;
 	width: 50%;

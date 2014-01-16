@@ -106,8 +106,6 @@ gp_tmpl_header();
 
 		</div>
 
-		<div class="clear"></div>
-
 
 		<script type="text/javascript" charset="utf-8">
 			$gp.showhide('a.personal-options', 'div.personal-options', {
