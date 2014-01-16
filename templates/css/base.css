@@ -11,7 +11,6 @@ body {
 }
 
 /* MAIN STYLING */
-
 #content h2:first-child {
 	margin-top: 0;
 }
@@ -55,6 +54,20 @@ body {
 	margin-bottom: 10px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
+}
+
+/* PERMISSIONS */
+.permissions .user {
+    font-weight: bold;
+}
+.permissions .permission-action {
+    font-style: italic;
+    color: #999;
+}
+
+/* PERSONAL OPTIONS */
+.personal-options #source-url-template {
+    width: 20em;
 }
 
 
@@ -304,15 +317,15 @@ dl.filters-expanded dt p:first-child, dl.filters-expanded dd p:first-child {
     margin-top: 0;
     padding-top: 0;
 }
+
+
 .hidden,
 .js .hide-if-js,
 .no-js .hide-if-no-js {
     display: none;
 }
 
-.personal-options #source-url-template {
-    width: 20em;
-}
+
 .invisibles {
     color: #888;
     font-size: 85%;
@@ -321,13 +334,7 @@ dl.filters-expanded dt p:first-child, dl.filters-expanded dd p:first-child {
 }
 
 
-.permissions .user {
-    font-weight: bold;
-}
-.permissions .permission-action {
-    font-style: italic;
-    color: #999;
-}
+
 .warning {
     background-color: white;
     color: #E44B3E;
