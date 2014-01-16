@@ -23,8 +23,6 @@ gp_tmpl_header();
 			<?php do_action( 'after_login_form' ); ?>
 		</form>
 
-		<script type="text/javascript" charset="utf-8">
-			document.getElementById('user_login').focus();
-		</script>
+		<?php gp_js_focus_on('user_login'); ?>
 
 <?php gp_tmpl_footer();
