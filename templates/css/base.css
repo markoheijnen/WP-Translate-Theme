@@ -151,12 +151,6 @@ table.translations a.action {
 	float: left;
 	width: 50%;
 }
-span.context {
-	background-color: #aaa;
-	color: white;
-	font-size: 100%;
-	padding: 0.3em;
-}
 
 .editor .original {
 	font-weight: bold;
@@ -229,15 +223,6 @@ span.context {
 	padding: 0.5em;    
 }
 
-a.bubble, .bubble {
-    font-size: 80%;
-    color: white;
-    padding: 0.2em 0.3em 0.1em 0.2em;
-    text-decoration: none;
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    text-align: center;
-}
 span.active {
 	background-color: yellow;
 	color: #555;
