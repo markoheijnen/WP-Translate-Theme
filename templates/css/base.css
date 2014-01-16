@@ -441,17 +441,6 @@ span.removed {
 	margin-left: 6em;
 }
 
-span.or-cancel {
-	font-size: 0.85em;
-}
-table.form-table th {
-	text-align: left;
-	vertical-align: text-top;
-}
-table.form-table th, table.form-table td {
-	padding: 10px 0 0 0;
-}
-
 .tablesorter th.header {
 	background-repeat: no-repeat;
 	background-position: center right;
@@ -467,3 +456,6 @@ table.form-table th, table.form-table td {
 	background-image: url(../img/desc.gif); 
 	background-color: #3399FF; 
 }
+
+
+
