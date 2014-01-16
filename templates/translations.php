@@ -24,18 +24,17 @@ $i = 0;
 		</h2>
 
 		<?php if ( $can_approve ): ?>
-		<form id="bulk-actions-toolbar" class="filters-toolbar bulk-actions" action="<?php echo $bulk_action; ?>" method="post">
-			<div>
-			<select name="bulk[action]">
+		<form id="bulk-actions-toolbar" class="filters-toolbar bulk-actions form-inline" action="<?php echo $bulk_action; ?>" method="post" role="form">
+			<select name="bulk[action]" class="form-control input-sm">
 				<option value="" selected="selected"><?php _e('Bulk Actions'); ?></option>
 				<option value="approve"><?php _e('Approve'); ?></option>
 				<option value="reject"><?php _e('Reject'); ?></option>
 				<?php do_action( 'gp_translation_set_bulk_action', $translation_set ); ?>
 			</select>
+
 			<input type="hidden" name="bulk[redirect_to]" value="<?php echo esc_attr(gp_url_current()); ?>" id="bulk[redirect_to]" />
 			<input type="hidden" name="bulk[row-ids]" value="" id="bulk[row-ids]" />
-			<input type="submit" class="button" value="<?php esc_attr_e( 'Apply' ); ?>" class="btn btn-default" />
-			</div>
+			<input type="submit" class="btn btn-default btn-sm" value="<?php esc_attr_e( 'Apply' ); ?>" />
 		</form>
 		<?php endif; ?>
 
