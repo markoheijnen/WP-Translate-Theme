@@ -136,7 +136,7 @@ $i = 0;
 		<table id="translations" class="translations clear<?php if( isset( $locale->rtl ) && $locale->rtl ) { echo ' translation-sets-rtl'; } ?>">
 			<thead>
 			<tr>
-				<?php if ( $can_approve ) : ?><th class="checkbox"><input type="checkbox" /></th><?php endif; ?>
+				<?php if ( $can_approve ) : ?><th><input type="checkbox" /></th><?php endif; ?>
 				<th><?php /* Translators: Priority */ _e('Prio'); ?></th>
 				<th class="original"><?php _e('Original string'); ?></th>
 				<th class="translation"><?php _e('Translation'); ?></th>

@@ -67,28 +67,6 @@ body {
 
 
 /* Old stuff */
-table.translations, table.translation-sets {
-	font-size: 90%;
-	width: 100%;
-	border-spacing: 0.1em;
-}
-table.translations thead th,
-table.translations tfoot th,
-table.translation-sets thead th,
-table.translations tfoot th {
-	font-weight: bold;
-	color: #eee;
-	background-color: #555;	
-	padding: 0.5em;
-}
-table.translations tr, table.translation-sets tr {
-	border: 0;
-}
-table.translations td.translation ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
 table.translations td.translation li {
     padding-bottom: 0.25em;
     border-bottom: 1px dotted #ccc;
@@ -113,10 +91,6 @@ table.translations td, table.translations th, table.translation-sets td, table.t
 	border-spacing: 0;
 }
 
-table.translations td.checkbox {
-    vertical-align: middle;
-    text-align: center;
-}
 table.translations td.priority {
     text-align: center;
     font-size: 1.3em;
