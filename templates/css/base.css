@@ -176,10 +176,6 @@ table.translations a.action {
 	font-size: 80%;
 	margin: 0.25em;
 }
-.half {
-	float: left;
-	width: 50%;
-}
 
 .editor .original {
 	font-weight: bold;
