@@ -54,13 +54,15 @@ body {
 	text-align: left;
 }
 
+/* BULK ACTIONS */
+.bulk-actions input {
+	margin-right: 8px;
+}
 
-
-
-
-
-
-
+/* PAGINATION */
+.pagination {
+	margin: 0;
+}
 
 
 
@@ -162,6 +164,7 @@ table.translations a.action {
     font-size: 100%;
     font-style: normal;
 }
+
 
 .separator {
 	font-size: 80%;
@@ -280,45 +283,7 @@ ul a.edit, dt a.edit {
 ul a.delete {
     background-color: #FF4F50;
 }
-.paging {
-    float: right;
-}
-.paging a, .paging span {
-    font-size: 0.9em;
-    display: block;
-    width: 2em;
-    height: 2em;
-    border: 1px solid #ddd;
-    float: left;
-    text-align: center;
-    line-height: 2em;
-    margin: 0.3em;
-    text-decoration: none;
-}
-.paging .current, .paging .dots {
-    border-color: transparent;
-    color: black;
-    width: 1.3em;
-}
-.paging .current {
-    font-weight: bold;
-}
-.paging .next {
-	margin-right: 1px;
-}
-.paging .disabled {
-    color: #999;
-    border-color: #eee;
-}
-.bulk-actions {
-	float: left;
-}
-.bulk-actions input {
-	margin-right: 8px;
-}
-.bulk-actions select {
-	width: 130px;
-}
+
 form.filters-toolbar > div {
 	line-height: 2em;
 }

@@ -24,7 +24,7 @@ $i = 0;
 		</h2>
 
 		<?php if ( $can_approve ): ?>
-		<form id="bulk-actions-toolbar" class="filters-toolbar bulk-actions form-inline" action="<?php echo $bulk_action; ?>" method="post" role="form">
+		<form id="bulk-actions-toolbar" class="filters-toolbar bulk-actions form-inline pull-left" action="<?php echo $bulk_action; ?>" method="post" role="form">
 			<select name="bulk[action]" class="form-control input-sm">
 				<option value="" selected="selected"><?php _e('Bulk Actions'); ?></option>
 				<option value="approve"><?php _e('Approve'); ?></option>
@@ -38,7 +38,9 @@ $i = 0;
 		</form>
 		<?php endif; ?>
 
-		<?php echo gp_pagination( $page, $per_page, $total_translations_count ); ?>
+		<div class="pull-right">
+			<?php echo GP_Bootstrap_Theme_Hacks::gp_pagination( $page, $per_page, $total_translations_count ); ?>
+		</div>
 
 		<form id="upper-filters-toolbar" class="filters-toolbar" action="" method="get" accept-charset="utf-8">
 			<div>
@@ -153,7 +155,11 @@ $i = 0;
 			endif;
 		?>
 		</table>
-		<?php echo gp_pagination( $page, $per_page, $total_translations_count ); ?>
+
+		<div class="pull-right">
+			<?php echo GP_Bootstrap_Theme_Hacks::gp_pagination( $page, $per_page, $total_translations_count ); ?>
+		</div>
+
 		<div id="legend" class="secondary clearfix">
 			<div><strong><?php _e('Legend:'); ?></strong></div>
 		<?php
