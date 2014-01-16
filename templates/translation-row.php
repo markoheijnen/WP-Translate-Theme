@@ -1,17 +1,18 @@
 <?php
-$status_class = $t->translation_status? 'status-'.$t->translation_status : 'untranslated';
-$warning_class = $t->warnings? 'has-warnings' : 'no-warnings';
+$status_class   = $t->translation_status? 'status-'.$t->translation_status : 'untranslated';
+$warning_class  = $t->warnings? 'has-warnings' : 'no-warnings';
 $priority_class = 'priority-'.gp_array_get( GP::$original->get_static( 'priorities' ), $t->priority );
-$priority_char = array(
+$priority_char  = array(
     '-2' => array('&times;', 'transparent', '#ccc'),
     '-1' => array('&darr;', 'transparent', 'blue'),
     '0' => array('', 'transparent', 'white'),
     '1' => array('&uarr;', 'transparent', 'green'),
 );
+
 $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->translation_status == "waiting");
 ?>
 
-<tr class="preview <?php echo $parity().' '.$status_class.' '.$warning_class.' '.$priority_class ?>" id="preview-<?php echo $t->row_id ?>" row="<?php echo $t->row_id; ?>">
+<tr class="preview <?php echo $status_class . ' ' . $warning_class . ' ' . $priority_class ?>" id="preview-<?php echo $t->row_id ?>" row="<?php echo $t->row_id; ?>">
 	<?php if ( $can_approve ) : ?><th scope="row" class="checkbox"><input type="checkbox" name="selected-row[]" /></th><?php endif; ?>
 	<?php /*
 	<td class="priority" style="background-color: <?php echo $priority_char[$t->priority][1] ?>; color: <?php echo $priority_char[$t->priority][2] ?>; text-align: center; font-size: 1.2em;" title="<?php echo esc_attr('Priority: '.gp_array_get( GP::$original->get_static( 'priorities' ), $t->priority )); ?>">
