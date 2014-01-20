@@ -48,6 +48,12 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	}
 
 	public function wp_default_scripts( &$scripts ) {
+		$scripts->remove( 'common' );
+		$scripts->remove( 'translations-page' );
+
+		$scripts->add( 'common', gp_url_base_root() . 'plugins/child-theme/templates/js/common.js', array('jquery'), $this->version );
+		$scripts->add( 'translations-page', gp_url_base_root() . 'plugins/child-theme/templates/js/translations-page.js', array('common'), $this->version );
+
 		$scripts->add( 'bootstrap', gp_url_base_root() . 'plugins/child-theme/templates/js/bootstrap.min.js', array('jquery'), $this->version );
 	}
 
