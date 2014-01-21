@@ -50,7 +50,6 @@ if ( ! is_array( $default_sort ) ) {
 				</div>
 			</div>
 
-
 			<div class="form-group">
 				<label for="default_sort[how]" class="col-sm-4 col-md-3 control-label"><?php _e("Default Sort Order:") ?></label>
 				<div class="col-sm-8">
@@ -68,6 +67,27 @@ if ( ! is_array( $default_sort ) ) {
 					</div>
 				</div>
 			</div>
+
+
+			<div class="form-group">
+				<label for="default_theme" class="col-sm-4 col-md-3 control-label"><?php _e("Theme:") ?></label>
+				<div class="col-sm-4">
+					<?php
+					echo gp_select(
+						'default_theme',
+						array(
+							'default'   => __('Default theme'),
+							'bootstrap' => __('Bootstrap theme'),
+						),
+						GP::$user->current()->get_meta('default_theme'),
+						array(
+							'class' => 'form-control'
+						)
+					);
+					?>
+				</div>
+			</div>
+
 
 			<br />
 

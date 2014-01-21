@@ -3,13 +3,17 @@
 include 'hacks.php';
 
 class GP_Bootstrap_Theme extends GP_Plugin {
-	public $id = 'bootstrap_theme';
+	public $id      = 'bootstrap_theme';
 	public $version = '1.0';
 
 	private $child_path;
 
 	public function __construct() {
 		parent::__construct();
+
+		if( 'default' == GP::$user->current()->get_meta('default_theme') ) {
+			return;
+		}
 
 		$this->child_path = dirname( __FILE__ ) . '/templates/';
 
@@ -21,6 +25,8 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 
 		$this->add_action( 'wp_default_scripts' );
 		$this->add_action( 'wp_print_scripts' );
+
+		$this->add_action( 'init' );
 	}
 
 	public function plugins_loaded() {
@@ -59,6 +65,13 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 
 	public function wp_print_scripts() {
 		wp_enqueue_script( 'bootstrap' );
+	}
+
+
+	public function init() {
+		if ( isset( $_POST['submit'] ) ) {
+			GP::$user->current()->set_meta( 'default_theme', sanitize_key( $_POST['default_theme'] ) );
+		}
 	}
 
 }
