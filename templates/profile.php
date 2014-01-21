@@ -73,7 +73,7 @@ if ( ! is_array( $default_sort ) ) {
 
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-md-offset-3 col-sm-8">
-					<button type="submit" class="btn btn-primary"><?php esc_attr_e("Change Settings"); ?></button>
+					<button type="submit" name="submit" class="btn btn-primary"><?php esc_attr_e("Change Settings"); ?></button>
 				</div>
 			</div>
 		</form>
