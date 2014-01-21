@@ -18,7 +18,7 @@ gp_tmpl_header();
 
 			<input type="hidden" value="<?php echo esc_attr( gp_get( 'redirect_to' ) ); ?>" id="redirect_to" name="redirect_to" />
 
-			<button class="btn btn-lg btn-primary btn-block" name="submit"><?php _e('Login'); ?></button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit"><?php _e('Login'); ?></button>
 
 			<?php do_action( 'after_login_form' ); ?>
 		</form>

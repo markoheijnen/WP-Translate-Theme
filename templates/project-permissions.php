@@ -81,7 +81,7 @@ gp_tmpl_header();
 
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-md-offset-3 col-sm-8">
-					<button type="submit" class="btn btn-primary"><?php echo esc_attr( __('Add') ); ?></button>
+					<button type="submit" name="submit" class="btn btn-primary"><?php echo esc_attr( __('Add') ); ?></button>
 					<input type="hidden" name="action" value="add-validator" />
 				</div>
 			</div>
