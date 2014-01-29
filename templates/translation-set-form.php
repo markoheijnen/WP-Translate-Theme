@@ -16,9 +16,9 @@
 
 			<!-- TODO: make slug edit WordPress style -->
 			<div class="form-group">
-				<label for="project[slug]" class="col-sm-4 col-md-3 control-label"><?php _e('Slug'); ?></label>
+				<label for="set[slug]" class="col-sm-4 col-md-3 control-label"><?php _e('Slug'); ?></label>
 				<div class="col-sm-4">
-					<input type="text" id="project[slug]" class="form-control" name="project[slug]" value="<?php echo esc_html( $set->slug? $set->slug : 'default' ); ?>" />
+					<input type="text" id="set[slug]" class="form-control" name="set[slug]" value="<?php echo esc_html( $set->slug? $set->slug : 'default' ); ?>" />
 				</div>
 			</div>
 
