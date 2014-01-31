@@ -11,6 +11,10 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	public function __construct() {
 		parent::__construct();
 
+		// Used for selecting the theme
+		$this->add_filter( 'tmpl_load_locations', array( 'args' => 4 ) );
+		$this->add_action( 'init' );
+
 		if( 'default' == GP::$user->current()->get_meta('default_theme') ) {
 			return;
 		}
@@ -18,15 +22,12 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 		$this->child_path = dirname( __FILE__ ) . '/templates/';
 
 		$this->add_action( 'plugins_loaded' );
-		$this->add_filter( 'tmpl_load_locations', array( 'args' => 4 ) );
 
 		$this->add_action( 'wp_default_styles' );
 		$this->add_action( 'wp_print_styles' );
 
 		$this->add_action( 'wp_default_scripts' );
 		$this->add_action( 'wp_print_scripts' );
-
-		$this->add_action( 'init' );
 	}
 
 	public function plugins_loaded() {
@@ -36,7 +37,12 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	}
 
 	public function tmpl_load_locations( $locations, $template, $args, $template_path ) {
-		array_unshift( $locations, $this->child_path );
+		if( 'default' == GP::$user->current()->get_meta('default_theme') ) {
+			array_unshift( $locations, dirname( __FILE__ ) . '/default/' );
+		}
+		else {
+			array_unshift( $locations, $this->child_path );
+		}
 
 		return $locations;
 	}

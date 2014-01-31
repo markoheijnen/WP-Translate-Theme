@@ -73,13 +73,15 @@ if ( ! is_array( $default_sort ) ) {
 				<label for="default_theme" class="col-sm-4 col-md-3 control-label"><?php _e("Theme:") ?></label>
 				<div class="col-sm-4">
 					<?php
+					$default_theme = ( 'default' == GP::$user->current()->get_meta('default_theme') ) ? 'default' : 'bootstrap';
+
 					echo gp_select(
 						'default_theme',
 						array(
 							'default'   => __('Default theme'),
 							'bootstrap' => __('Bootstrap theme'),
 						),
-						GP::$user->current()->get_meta('default_theme'),
+						$default_theme,
 						array(
 							'class' => 'form-control'
 						)
