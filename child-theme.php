@@ -75,8 +75,8 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 
 
 	public function init() {
-		if ( isset( $_POST['submit'] ) ) {
-			GP::$user->current()->set_meta( 'default_theme', sanitize_key( $_POST['default_theme'] ) );
+		if ( isset( $_POST['submit'], $_POST['default_theme'] ) ) {
+			GP::$user->current()->set_meta( 'default_theme', sanitize_text_field( $_POST['default_theme'] ) );
 		}
 	}
 
