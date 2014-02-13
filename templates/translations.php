@@ -21,6 +21,15 @@ $i = 0;
 		<h2>
 			<?php printf( __("Translation of %s"), esc_html( $project->name )); ?>: <?php echo esc_html( $translation_set->name ); ?>
 			<?php gp_link_set_edit( $translation_set, $project, __('Edit'), array( 'class' => 'btn btn-xs btn-primary' ) ); ?>
+
+			<?php
+			if ( $glossary ) {
+				echo gp_link( gp_url_project_locale( $project, $locale->slug, $translation_set->slug ) . '/glossary', __('glossary'), array( 'class'=>'btn btn-xs btn-primary' ) );
+			}
+			elseif( $can_edit ) {
+				echo gp_link_get( gp_url( '/glossaries/-new', array( 'translation_set_id' => $translation_set->id ) ), __( 'Create glossary' ), array( 'class'=>'btn btn-xs btn-primary' ) );
+			}
+			?>
 		</h2>
 
 		<?php if ( $can_approve ): ?>
