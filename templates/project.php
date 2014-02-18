@@ -114,10 +114,11 @@ gp_tmpl_header();
 				focus: '#source-url-template',
 				group: 'personal'
 			});
-			$('div.personal-options').hide();
+
+			jQuery('div.personal-options').hide();
 
 			$(document).ready(function() {
-				$(".translation-sets").tablesorter({
+				jQuery(".translation-sets").tablesorter({
 					headers: {
 						0: {
 							sorter: 'text'
