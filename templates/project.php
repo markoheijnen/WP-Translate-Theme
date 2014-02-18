@@ -117,8 +117,8 @@ gp_tmpl_header();
 
 			jQuery('div.personal-options').hide();
 
-			$(document).ready(function() {
-				jQuery(".translation-sets").tablesorter({
+			jQuery(document).ready(function($) {
+				$(".translation-sets").tablesorter({
 					headers: {
 						0: {
 							sorter: 'text'
