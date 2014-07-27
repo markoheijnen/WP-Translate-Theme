@@ -135,10 +135,27 @@ $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->tr
 			<dl>
 				<dt><?php _e('Translated by:'); ?></dt>
 				<dd><?php
-				if ( $t->user_display_name && $t->user_display_name != $t->user_login ) {
-					printf( '%s (%s)', $t->user_display_name, $t->user_login );
-				} else {
-					echo $t->user_login;
+				if ( GP_Bootstrap_Theme::has_feature('profile') ) {
+					if ( $t->user_display_name && $t->user_display_name != $t->user_login ) {
+						printf( '<a href="%s">%s(%s)</a>',
+							gp_url( "/profile/$t->user_nicename" ),
+							$t->user_display_name,
+							$t->user_login
+						);
+						echo $t->user_nicename;
+					} else {
+						printf( '<a href="%s">%s</a>',
+							gp_url( "/profile/$t->user_nicename" ),
+							$t->user_login
+						);
+					}
+				}
+				else {
+					if ( $t->user_display_name && $t->user_display_name != $t->user_login ) {
+						printf( '%s (%s)', $t->user_display_name, $t->user_login );
+					} else {
+						echo $t->user_login;
+					}
 				}
 				?></dd>
 			</dl>

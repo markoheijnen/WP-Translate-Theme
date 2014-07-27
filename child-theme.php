@@ -48,7 +48,7 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	}
 
 
-	public function wp_default_styles( &$styles ) {
+	public function wp_default_styles( $styles ) {
 		$styles->remove( 'base' );
 
 		$styles->add( 'base', gp_url_base_root() .'plugins/child-theme/templates/css/base.css', array( 'bootstrap' ), $this->version );
@@ -59,7 +59,7 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 		wp_enqueue_style( 'base' );
 	}
 
-	public function wp_default_scripts( &$scripts ) {
+	public function wp_default_scripts( $scripts ) {
 		$scripts->remove( 'common' );
 		$scripts->remove( 'translations-page' );
 
@@ -77,6 +77,16 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	public function init() {
 		if ( isset( $_POST['submit'], $_POST['default_theme'] ) ) {
 			GP::$user->current()->set_meta( 'default_theme', sanitize_text_field( $_POST['default_theme'] ) );
+		}
+	}
+
+
+	public static function has_feature( $feature ) {
+		switch( $feature ) {
+			case 'profile':
+				return method_exists( 'GP_Route_Profile', 'profile_view' );
+			default:
+				return false;
 		}
 	}
 

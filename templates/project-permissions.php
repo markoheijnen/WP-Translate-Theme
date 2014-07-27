@@ -17,19 +17,27 @@ gp_tmpl_header();
 			<?php if ( $parent_permissions ): ?>
 			<h4 id="validators"><?php _e('Validators for this project'); ?></h4>
 			<?php endif; ?>
-		<ul class="permissions">
-			<?php foreach( $permissions as $permission ): ?>
-				<li>
-					<span class="permission-action"><?php _e('user'); ?></span>
-					<span class="user"><?php echo esc_html( $permission->user->user_login ); ?></span>
-					<span class="permission-action"><?php printf( __('can %s strings with locale'), esc_html( $permission->action ) ); ?></span>
-					<span class="user"><?php echo esc_html( $permission->locale_slug ); ?></span>
-					<span class="permission-action"><?php _e('and slug'); ?></span>
-					<span class="user"><?php echo esc_html( $permission->set_slug ); ?></span>
-					<a href="<?php echo gp_url_join( gp_url_current(), '-delete/'.$permission->id ); ?>" class="action delete"><?php _e('Remove'); ?></a>
-				</li>
-			<?php endforeach; ?>
-		</ul>
+
+			<ul class="permissions">
+				<?php foreach( $permissions as $permission ): ?>
+					<li>
+						<span class="permission-action"><?php _e('user'); ?></span>
+						<?php
+						if ( GP_Bootstrap_Theme::has_feature('profile') ) {
+							echo '<span class="user">' . sprintf( '<a href="%s">%s</a>', gp_url( '/profile/' . $permission->user->user_nicename ), $permission->user->user_login ) . '</span>';
+						} else {
+							echo '<span class="user">' . esc_html( $permission->user->user_login ) . '</span>';
+						}
+						?>
+
+						<span class="permission-action"><?php printf( __('can %s strings with locale'), esc_html( $permission->action ) ); ?></span>
+						<span class="user"><?php echo esc_html( $permission->locale_slug ); ?></span>
+						<span class="permission-action"><?php _e('and slug'); ?></span>
+						<span class="user"><?php echo esc_html( $permission->set_slug ); ?></span>
+						<a href="<?php echo gp_url_join( gp_url_current(), '-delete/'.$permission->id ); ?>" class="action delete"><?php _e('Remove'); ?></a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
 		<?php endif; ?>
 
 		<?php if ( $parent_permissions ): ?>
@@ -38,7 +46,14 @@ gp_tmpl_header();
 			<?php foreach( $parent_permissions as $permission ): ?>
 				<li>
 					<span class="permission-action"><?php _e('user'); ?></span>
-					<span class="user"><?php echo esc_html( $permission->user->user_login ); ?></span>
+					<?php
+					if ( GP_Bootstrap_Theme::has_feature('profile') ) {
+						echo '<span class="user">' . sprintf( '<a href="%s">%s</a>', gp_url( '/profile/' . $permission->user->user_nicename ), $permission->user->user_login ) . '</span>';
+					} else {
+						echo '<span class="user">' . esc_html( $permission->user->user_login ) . '</span>';
+					}
+					?>
+
 					<span class="permission-action"><?php printf(__('can %s strings with locale'), esc_html( $permission->action )); ?></span>
 					<span class="user"><?php echo esc_html( $permission->locale_slug ); ?></span>
 					<span class="permission-action"><?php _e('and slug'); ?></span>

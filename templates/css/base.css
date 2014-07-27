@@ -380,3 +380,7 @@ span.removed {
 	margin-left: 6em;
 }
 
+
+#profile .panel-default {
+    padding: 15px;
+}
