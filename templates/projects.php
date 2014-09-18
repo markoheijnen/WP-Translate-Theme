@@ -14,8 +14,14 @@ gp_tmpl_header();
 		<?php endforeach; ?>
 		</ul>
 
-		<?php if ( GP::$user->current()->can( 'write', 'project' ) ): ?>
-			<p><?php gp_link( gp_url_project( '-new' ), __('Create a New Project'), array( 'class' => 'btn btn-primary' ) ); ?></p>
-		<?php endif; ?>
+		<p>
+			<?php gp_link( gp_url( '/languages' ), __('Projects by language'), array( 'class' => 'btn btn-primary' ) ); ?>
+
+			<?php if ( GP::$user->current()->can( 'write', 'project' ) ): ?>
+				<?php gp_link( gp_url_project( '-new' ), __('Create a New Project'), array( 'class' => 'btn btn-default' ) ); ?>
+			<?php endif; ?>
+		</p>
+
+		
 
 <?php gp_tmpl_footer(); ?>
