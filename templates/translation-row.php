@@ -13,7 +13,7 @@ $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->tr
 ?>
 
 <tr class="preview <?php echo $status_class . ' ' . $warning_class . ' ' . $priority_class ?>" id="preview-<?php echo $t->row_id ?>" row="<?php echo $t->row_id; ?>">
-	<?php if ( $can_approve ) : ?><th scope="row"><input type="checkbox" name="selected-row[]" /></th><?php endif; ?>
+	<?php if ( $can_approve ) : ?><th scope="row"><input type="checkbox" name="selected-row[]" class="checkbox" /></th><?php endif; ?>
 	<?php /*
 	<td class="priority" style="background-color: <?php echo $priority_char[$t->priority][1] ?>; color: <?php echo $priority_char[$t->priority][2] ?>; text-align: center; font-size: 1.2em;" title="<?php echo esc_attr('Priority: '.gp_array_get( GP::$original->get_static( 'priorities' ), $t->priority )); ?>">
 	*/ ?>

@@ -13,7 +13,7 @@ jQuery(function($) {
 	var rows_checked = 0;
 
 	$('form.filters-toolbar.bulk-actions').submit(function(e) {
-		var	row_ids = $('input:checked', $('table#translations th')).map(function() {
+		var	row_ids = $('input:checked', $('table#translations th .checkbox')).map(function() {
 			return $(this).parents('tr.preview').attr('row');
 		}).get().join(',');
 		$('input[name="bulk[row-ids]"]', $(this)).val(row_ids);
@@ -56,13 +56,13 @@ jQuery(function($) {
 		return true;
 	});
 
-	$('thead, tfoot').find('.checkbox :checkbox').click( function(e) {
+	$('thead, tfoot').find('.checkbox').click( function(e) {
 		var c = $(this).prop('checked'),
 			kbtoggle = 'undefined' == typeof toggleWithKeyboard ? false : toggleWithKeyboard,
 			toggle = e.shiftKey || kbtoggle;
 
 		$(this).closest( 'table' ).children( 'tbody' ).filter(':visible')
-		.children().children('.checkbox').find(':checkbox')
+		.children().children().children('.checkbox')
 		.prop('checked', function() {
 			if ( $(this).closest('tr').is(':hidden') )
 				return false;
