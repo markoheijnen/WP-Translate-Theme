@@ -190,12 +190,13 @@ $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->tr
 			</dl>
 		</div>
 		<div class="actions">
-		<?php if ( $can_edit ): ?>
-			<button class="ok">
-				<?php echo $can_approve? __('Add translation &rarr;') : __('Suggest new translation &rarr;'); ?>
+			<?php if ( $can_edit ): ?>
+			<button class="ok btn btn-primary">
+				<?php echo $can_approve ? __('Add translation &rarr;') : __('Suggest new translation &rarr;'); ?>
 			</button>
-		<?php endif; ?>
-			or <a href="#" class="close"><?php _e('Cancel'); ?></a>
+			<?php endif; ?>
+
+			<a href="#" class="close"><?php _e('Cancel'); ?></a>
 		</div>
 	</td>
 </tr>
