@@ -22,9 +22,11 @@ jQuery(function($) {
 		}
 	});
 	$('form.filters-toolbar.bulk-actions').submit(function(e) {
-		var	row_ids = $('input:checked', $('table#translations th .checkbox')).map(function() {
+		var	row_ids = $('input:checked', $('table#translations th')).map(function() {
 			return $(this).parents('tr.preview').attr('row');
 		}).get().join(',');
+
+		alert( row_ids );
 		$('input[name="bulk[row-ids]"]', $(this)).val(row_ids);
 	});
 	
