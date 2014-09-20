@@ -6,7 +6,7 @@ gp_breadcrumb( array(
  	gp_link_get( gp_url_project_locale( $project->path, $locale->slug, $translation_set->slug ) . '/glossary', __('Glossary') ),
  	__( 'edit' )
 ) );
-gp_tmpl_header();
+gp_tmpl_header(); 
 ?>
 		<h2><?php _e( 'Edit Glossary' ); ?></h2>
 
@@ -15,15 +15,18 @@ gp_tmpl_header();
 			<input type="hidden" name="glossary[translation_set_id]" value="<?php echo esc_attr( $glossary->translation_set_id ); ?>"/>
 
 			<div class="form-group">
-				<label for="glossary-edit-description" class="col-sm-4 col-md-3 control-label"><?php _e( 'Description (optional)'); ?><br/><small><?php _e('can include HTML'); ?></small></label>
+				<label for="glossary-edit-description" class="col-sm-4 col-md-3 control-label">
+					<?php _e( 'Description'); ?><br/>
+					<small><?php _e('can include HTML'); ?></small>
+				</label>
 				<div class="col-sm-4">
-					<textarea id="glossary-edit-description" class="form-control" name="glossary[description]" rows="4" cols="40"><?php echo esc_html($glossary->description); ?></textarea>
+					<textarea id="glossary-edit-description" class="form-control" name="glossary[description]" rows="4" cols="40"><?php echo esc_html( $glossary->description ); ?></textarea>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-md-offset-3 col-sm-8">
-					<input type="submit" name="submit" value="<?php echo esc_attr( __('Create') ); ?>" id="submit" class="btn btn-primary" />
+					<input type="submit" name="submit" value="<?php echo esc_attr( __('Save') ); ?>" id="submit" class="btn btn-primary" />
 					<span class="or-cancel"><?php _e('or'); ?> <a href="javascript:history.back();"><?php _e('Cancel'); ?></a></span>
 				</div>
 			</div>

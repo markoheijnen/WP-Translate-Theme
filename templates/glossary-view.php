@@ -6,9 +6,10 @@ gp_breadcrumb( array(
  	__( 'Glossary' )
 ) );
 
-$ge_delete_ays = __( 'Are you sure you want to delete this entry?' );
-$delete_url = $url . '/-delete';
+$ge_delete_ays    = __( 'Are you sure you want to delete this entry?' );
+$delete_url       = $url . '/-delete';
 $glossary_options = compact( 'can_edit', 'url', 'delete_url', 'ge_delete_ays' );
+
 wp_enqueue_script( 'common' );
 wp_enqueue_script( 'glossary' );
 wp_localize_script( 'glossary', '$gp_glossary_options', $glossary_options );
@@ -21,43 +22,48 @@ gp_tmpl_header();
 			<?php gp_link_glossary_edit( $glossary, $translation_set, __('Edit'), array( 'class' => 'btn btn-xs btn-primary' ) ); ?>
 		</h2>
 
-		<p class="description">
-			<?php echo make_clickable( nl2br( wp_kses_post( $glossary->description ) ) ); ?>
-		</p>
+		<?php
+		if ( $glossary->description ) {
+			echo '<p class="description">' . make_clickable( nl2br( wp_kses_post( $glossary->description ) ) ) . '</p>';
+		}
+		?>
 
-		<table class="translations table table-bordered" id="glossary">
+		<table class="glossary table table-bordered" id="glossary">
 			<thead>
 				<tr>
 					<th style="width:20%"><?php echo _x( 'Item', 'glossary entry'); ?></th>
 					<th style="width:20%"><?php echo _x( 'Part of speech', 'glossary entry'); ?></th>
 					<th style="width:20%"><?php echo _x( 'Translation', 'glossary entry'); ?></th>
 					<th style="width:30%"><?php echo _x( 'Comments', 'glossary entry'); ?></th>
-				<?php if ( $can_edit) : ?>
-					<th style="width:10%">&mdash;</th>
-				<?php endif; ?>
+
+					<?php if ( $can_edit) : ?>
+						<th style="width:10%">&mdash;</th>
+					<?php endif; ?>
 				</tr>
 			</thead>
 			<tbody>
-		<?php
-			if ( count( $glossary_entries ) > 0 ) {
-				foreach( $glossary_entries as $ge ) {
-					gp_tmpl_load( 'glossary-entry-row', get_defined_vars() );
-				}
-			}
-			else {
-			?>
-				<tr>
-					<td colspan="5">
-						<?php _e( 'No glossary entries yet.' ); ?>
-					</td>
-				</tr>
 			<?php
-			}
-		?>
+				if ( count( $glossary_entries ) > 0 ) {
+					foreach( $glossary_entries as $entry ) {
+						gp_tmpl_load( 'glossary-entry-row', get_defined_vars() );
+					}
+				}
+				else {
+				?>
+					<tr>
+						<td colspan="5">
+							<?php _e( 'No glossary entries yet.' ); ?>
+						</td>
+					</tr>
+				<?php
+				}
+				?>
+
 				<?php if ( $can_edit ) : ?>
 				<tr>
 					<td colspan="5">
 						<h4><?php _e( 'Create an entry' );?></h4>
+
 						<form action="<?php echo esc_url( $url . '/-new' ); ?>" method="post" class="form-left form-horizontal" role="form">
 							<input type="hidden" name="new_glossary_entry[glossary_id]" value="<?php echo esc_attr( $glossary->id ); ?>">
 
@@ -100,7 +106,15 @@ gp_tmpl_header();
 					</td>
 				</tr>
 				<?php endif; ?>
-		</tbody>
+			</tbody>
 		</table>
+
+		<p class="clear actionlist secondary">
+			<?php if( $can_edit ): ?>
+				<?php echo gp_link( gp_url_join( gp_url_project_locale( $project_path, $locale_slug, $translation_set_slug ), array( 'glossary', '-import' ) ), __('Import') ); ?>  &bull;&nbsp;
+			<?php endif; ?>
+
+			<?php echo gp_link( gp_url_join( gp_url_project_locale( $project_path, $locale_slug, $translation_set_slug ), array( 'glossary', '-export' ) ), __('Export as CSV') ); ?>
+		</p>
 
 <?php gp_tmpl_footer();

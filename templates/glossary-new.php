@@ -14,7 +14,11 @@ gp_tmpl_header();
 			<input type="hidden" name="glossary[translation_set_id]" value="<?php echo esc_attr( $glossary->translation_set_id ); ?>" />
 
 			<div class="form-group">
-				<label for="glossary-new-description" class="col-sm-4 col-md-3 control-label"><?php _e( 'Description (optional)'); ?><br/><small><?php _e('can include HTML'); ?></small></label>
+				<label for="glossary-new-description" class="col-sm-4 col-md-3 control-label">
+					<?php _e( 'Description (optional)'); ?><br/>
+					<small><?php _e('can include HTML'); ?></small>
+				</label>
+
 				<div class="col-sm-4">
 					<textarea id="glossary-new-description" class="form-control" name="glossary[description]" rows="4" cols="40"></textarea>
 				</div>

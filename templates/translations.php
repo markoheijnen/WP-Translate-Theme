@@ -4,6 +4,7 @@ gp_breadcrumb( array(
 	gp_project_links_from_root( $project ),
 	gp_link_get( $url, $translation_set->name ),
 ) );
+wp_enqueue_script( 'jquery-ui' );
 wp_enqueue_script( 'editor' );
 wp_enqueue_script( 'translations-page' );
 wp_localize_script( 'translations-page', '$gp_translations_options', array( 'sort' => __('Sort'), 'filter' => __('Filter') ) );
@@ -26,7 +27,7 @@ $i = 0;
 			if ( $glossary ) {
 				echo gp_link( gp_url_project_locale( $project, $locale->slug, $translation_set->slug ) . '/glossary', __('glossary'), array( 'class'=>'btn btn-xs btn-primary' ) );
 			}
-			elseif( $can_edit ) {
+			elseif( $can_approve ) {
 				echo gp_link_get( gp_url( '/glossaries/-new', array( 'translation_set_id' => $translation_set->id ) ), __( 'Create glossary' ), array( 'class'=>'btn btn-xs btn-primary' ) );
 			}
 			?>
@@ -169,17 +170,22 @@ $i = 0;
 				<th>&mdash;</th>
 			</tr>
 			</thead>
-		<?php foreach( $translations as $t ):
-				gp_tmpl_load( 'translation-row', get_defined_vars() );
-		?>
-		<?php endforeach; ?>
-		<?php
+
+			<?php
+			if ( $glossary ) {
+				$translations = map_glossary_entries_to_translations_originals( $translations, $glossary ); 
+			}
+
+			foreach( $translations as $t ) {
+					gp_tmpl_load( 'translation-row', get_defined_vars() );
+			}
+
 			if ( ! $translations ):
-		?>
-			<tr><td colspan="<?php echo $can_approve ? 5 : 4; ?>"><?php _e('No translations were found!'); ?></td></tr>
-		<?php
-			endif;
-		?>
+			?>
+				<tr><td colspan="<?php echo $can_approve ? 5 : 4; ?>"><?php _e('No translations were found!'); ?></td></tr>
+			<?php
+				endif;
+			?>
 		</table>
 
 		<div class="pull-right">
