@@ -103,4 +103,21 @@ class GP_Bootstrap_Theme_Hacks {
 		return apply_filters( 'gp_pagination', $html, $page, $per_page, $objects );
 	}
 
+	public static function gp_radio_buttons( $name, $radio_buttons, $checked_key ) {
+		$res = '';
+
+		foreach( $radio_buttons as $value => $label ) {
+			$checked = $value == $checked_key ? ' checked="checked"' : '';
+
+			$res .= "\t";
+			$res .= '<div class="radio">';
+			$res .= '<label for="' . $name . '[' . $value . ']">';
+			$res .= '<input type="radio" name="' . $name . '" value="' . esc_attr( $value ) . '" ' . $checked . ' id=" ' . $name . '[' . $value . ']"/>&nbsp;';
+			$res .= esc_html( $label ) . '</label>';
+			$res .= "</div>\n";
+		}
+
+		return $res;
+	}
+
 }

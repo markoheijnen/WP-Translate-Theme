@@ -81,9 +81,8 @@ gp_tmpl_header();
 			<div class="form-group">
 				<label for="default_sort[by]" class="col-sm-4 col-md-3 control-label"><?php _e("Default Sort By:") ?></label>
 				<div class="col-sm-8">
-					<div class="radio">
 					<?php
-					echo gp_radio_buttons(
+					echo GP_Bootstrap_Theme_Hacks::gp_radio_buttons(
 						'default_sort[by]',
 						array(
 							'original_date_added'    => __('Date added (original)'),
@@ -97,16 +96,14 @@ gp_tmpl_header();
 						gp_array_get( $default_sort, 'by', 'priority' )
 					);
 					?>
-					</div>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="default_sort[how]" class="col-sm-4 col-md-3 control-label"><?php _e("Default Sort Order:") ?></label>
 				<div class="col-sm-8">
-					<div class="radio">
 					<?php
-					echo gp_radio_buttons(
+					echo GP_Bootstrap_Theme_Hacks::gp_radio_buttons(
 						'default_sort[how]',
 						array(
 							'asc'  => __('Ascending'),
@@ -115,7 +112,6 @@ gp_tmpl_header();
 						gp_array_get( $default_sort, 'how', 'desc' )
 					);
 					?>
-					</div>
 				</div>
 			</div>
 
