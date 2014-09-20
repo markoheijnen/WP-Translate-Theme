@@ -171,10 +171,10 @@ $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->tr
 
 			<?php references( $project, $t ); ?>
 
-			<dl>
+			<dl class="form-inline">
 			    <dt><?php _e('Priority of the original:'); ?></dt>
 			<?php if ( $can_write ): ?>
-			    <dd><?php echo gp_select( 'priority-'.$t->original_id, GP::$original->get_static( 'priorities' ), $t->priority, array('class' => 'priority', 'tabindex' => '-1') ); ?></dd>
+			    <dd><?php echo gp_select( 'priority-'.$t->original_id, GP::$original->get_static( 'priorities' ), $t->priority, array('class' => 'priority form-control input-sm', 'tabindex' => '-1') ); ?></dd>
 			<?php else: ?>
 			    <dd><?php echo gp_array_get( GP::$original->get_static( 'priorities' ), $t->priority, 'unknown' ); ?></dd>
 			<?php endif; ?>
