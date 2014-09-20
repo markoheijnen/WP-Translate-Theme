@@ -38,4 +38,4 @@ gp_tmpl_header();
 			</div>
 		</form>
 
-<?php gp_tmpl_footer(); ?>
+<?php gp_tmpl_footer();

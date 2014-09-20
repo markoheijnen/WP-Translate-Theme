@@ -11,4 +11,3 @@ gp_tmpl_header();
 
 <?php
 gp_tmpl_footer();
-?>
