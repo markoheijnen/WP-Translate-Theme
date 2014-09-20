@@ -446,12 +446,15 @@ dl.filters-expanded dt p:first-child, dl.filters-expanded dd p:first-child {
     margin: 1em 0;
     padding: 0.5em;
 }
+.warning:after { 
+    clear:both; 
+    content: ""; 
+    display: block; 
+} 
 .warning a.discard-warning {
     float: right;
 }
-.textareas .warning {
-    width: 53em;
-}
+
 p.description {
 	max-width: 60em;
 	margin-left: 1em;
