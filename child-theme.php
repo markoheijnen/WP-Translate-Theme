@@ -3,8 +3,10 @@
 include 'hacks.php';
 
 class GP_Bootstrap_Theme extends GP_Plugin {
-	public $id      = 'bootstrap_theme';
-	public $version = '1.0';
+	public $id                = 'bootstrap_theme';
+	const version             = '1.0';
+	const bootstrap_version   = '3.2.0';
+	const glotpress_changeset = '847';
 
 	private $child_path;
 
@@ -15,7 +17,7 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 		$this->add_filter( 'tmpl_load_locations', array( 'args' => 4 ) );
 		$this->add_action( 'init' );
 
-		if( 'default' == GP::$user->current()->get_meta('default_theme') ) {
+		if ( 'default' == GP::$user->current()->get_meta('default_theme') ) {
 			return;
 		}
 
@@ -31,13 +33,13 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	}
 
 	public function plugins_loaded() {
-		if( file_exists( $this->child_path . 'helper-functions.php' ) ) {
+		if ( file_exists( $this->child_path . 'helper-functions.php' ) ) {
 			require_once $this->child_path . 'helper-functions.php';
 		}
 	}
 
 	public function tmpl_load_locations( $locations, $template, $args, $template_path ) {
-		if( 'default' == GP::$user->current()->get_meta('default_theme') ) {
+		if ( 'default' == GP::$user->current()->get_meta('default_theme') ) {
 			array_unshift( $locations, dirname( __FILE__ ) . '/default/' );
 		}
 		else {
@@ -51,8 +53,8 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	public function wp_default_styles( $styles ) {
 		$styles->remove( 'base' );
 
-		$styles->add( 'base', gp_url_base_root() .'plugins/child-theme/templates/css/base.css', array( 'bootstrap' ), $this->version );
-		$styles->add( 'bootstrap', gp_url_base_root() .'plugins/child-theme/templates/css/bootstrap.min.css', array(), $this->version );
+		$styles->add( 'base', gp_url_base_root() .'plugins/child-theme/templates/css/base.css', array( 'bootstrap' ), self::version );
+		$styles->add( 'bootstrap', gp_url_base_root() .'plugins/child-theme/templates/css/bootstrap.min.css', array(), self::bootstrap_version );
 	}
 
 	public function wp_print_styles() {
@@ -63,10 +65,10 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 		$scripts->remove( 'common' );
 		$scripts->remove( 'translations-page' );
 
-		$scripts->add( 'common', gp_url_base_root() . 'plugins/child-theme/templates/js/common.js', array('jquery'), $this->version );
-		$scripts->add( 'translations-page', gp_url_base_root() . 'plugins/child-theme/templates/js/translations-page.js', array('common'), $this->version );
+		$scripts->add( 'common', gp_url_base_root() . 'plugins/child-theme/templates/js/common.js', array('jquery'), self::version );
+		$scripts->add( 'translations-page', gp_url_base_root() . 'plugins/child-theme/templates/js/translations-page.js', array('common'), self::version );
 
-		$scripts->add( 'bootstrap', gp_url_base_root() . 'plugins/child-theme/templates/js/bootstrap.min.js', array('jquery'), $this->version );
+		$scripts->add( 'bootstrap', gp_url_base_root() . 'plugins/child-theme/templates/js/bootstrap.min.js', array('jquery'), self::bootstrap_version );
 	}
 
 	public function wp_print_scripts() {
