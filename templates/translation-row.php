@@ -32,7 +32,7 @@ $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->tr
 		if ( $can_edit ) {
 			$edit_text = __('Double-click to add');
 		}
-		else {
+		elseif ( GP::$user->logged_in() ) {
 			$edit_text = __('You are not allowed to add a translation.');
 		}
 		else {
@@ -40,7 +40,7 @@ $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->tr
 		}
 
 		$missing_text = "<span class='missing'>$edit_text</span>";
-		if ( ! count( count( array_filter( $t->translations, 'gp_is_not_empty_string' ) ) ) {
+		if ( ! count( array_filter( $t->translations, 'gp_is_not_empty_string' ) ) ) {
 			echo $missing_text;
 		}
 		elseif ( ! $t->plural ) {
