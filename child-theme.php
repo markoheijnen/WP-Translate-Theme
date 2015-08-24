@@ -6,7 +6,7 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 	public $id                = 'bootstrap_theme';
 	const version             = '1.0';
 	const bootstrap_version   = '3.2.0';
-	const glotpress_changeset = '1045';
+	const glotpress_changeset = '1056';
 
 	private $child_path;
 
