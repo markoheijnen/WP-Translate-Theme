@@ -156,14 +156,14 @@ $can_reject_self = (GP::$user->current()->user_login == $t->user_login && $t->tr
 				<dd><?php
 				if ( GP_Bootstrap_Theme::has_feature('profile') ) {
 					if ( $t->user_display_name && $t->user_display_name != $t->user_login ) {
-						printf( '<a href="%s">%s(%s)</a>',
+						printf( '<a href="%s" tabindex="-1">%s(%s)</a>',
 							gp_url_profile( $t->user_nicename ),
 							$t->user_display_name,
 							$t->user_login
 						);
 						echo $t->user_nicename;
 					} else {
-						printf( '<a href="%s">%s</a>',
+						printf( '<a href="%s" tabindex="-1">%s</a>',
 							gp_url_profile( $t->user_nicename ),
 							$t->user_login
 						);
