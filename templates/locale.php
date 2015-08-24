@@ -31,7 +31,7 @@ gp_tmpl_header();
 		<div class="locale-project">
 			<h3><?php echo ( $projects[$project_id]->name );?></h3>
 
-			<table class="locale-sub-projects table table-striped">
+			<table class="locale-sub-projects table table-striped table-bordered table-hover">
 				<thead>
 				<tr>
 					<th class="header" <?php if (count($sub_projects)>1 ) echo 'rowspan="'. count($sub_projects) . '"';?>><?php if (count($sub_projects)>1 ) _e( 'Project' ); ?></th>
