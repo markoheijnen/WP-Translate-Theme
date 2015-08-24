@@ -166,7 +166,7 @@ $i = 0;
 			</dl>
 		</form>
 
-		<table id="translations" class="translations table table-bordered<?php if( isset( $locale->rtl ) && $locale->rtl ) { echo ' translation-sets-rtl'; } ?>">
+		<table id="translations" class="translations table table-bordered<?php if ( 'rtl' == $locale->text_direction ) { echo ' translation-sets-rtl'; } ?>">
 			<thead>
 			<tr>
 				<?php if ( $can_approve ) : ?><th><input type="checkbox" class="checkbox" /></th><?php endif; ?>
