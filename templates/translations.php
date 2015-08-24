@@ -13,19 +13,17 @@ wp_localize_script( 'translations-page', '$gp_translations_options', array( 'sor
 $editor_options = compact('can_approve', 'can_write', 'url', 'discard_warning_url', 'set_priority_url', 'set_status_url');
 wp_localize_script( 'editor', '$gp_editor_options', $editor_options );
 
-add_action( 'gp_head', lambda( '', 'gp_preferred_sans_serif_style_tag($locale);', compact( 'locale' ) ) );
-
 gp_tmpl_header();
 $i = 0;
 ?>
 
 		<h2>
-			<?php printf( __("Translation of %s"), esc_html( $project->name )); ?>: <span><?php echo esc_html( $translation_set->name ); ?></span>
+					<?php printf( __("Translation of %s"), esc_html( $project->name )); ?>: <span><?php echo esc_html( $translation_set->name ); ?></span>
 			<?php gp_link_set_edit( $translation_set, $project, __('Edit'), array( 'class' => 'btn btn-xs btn-primary' ) ); ?>
 
 			<?php
 			if ( $glossary ) {
-				echo gp_link( gp_url_project_locale( $project, $locale->slug, $translation_set->slug ) . '/glossary', __('glossary'), array( 'class'=>'btn btn-xs btn-primary' ) );
+				echo gp_link( $glossary->path(), __('glossary'), array( 'class'=>'btn btn-xs btn-primary' ) );
 			}
 			elseif( $can_approve ) {
 				echo gp_link_get( gp_url( '/glossaries/-new', array( 'translation_set_id' => $translation_set->id ) ), __( 'Create glossary' ), array( 'class'=>'btn btn-xs btn-primary' ) );
@@ -124,16 +122,10 @@ $i = 0;
 				<dd><input type="submit" value="<?php echo esc_attr(__('Filter')); ?>" name="filter" /></dd>
 			</dl>
 			<dl class="filters-expanded sort hidden clearfix">
-				<dt><?php _e('By:'); ?></dt>
+				<dt><?php _x('By:','sort by'); ?></dt>
 				<dd>
 				<?php
-				$default_sort = GP::$user->current()->get_meta('default_sort');
-				if ( ! is_array($default_sort) ) {
-					$default_sort = array(
-						'by' => 'priority',
-						'how' => 'desc'
-					);
-				}
+				$default_sort = GP::$user->current()->sort_defaults();
 
 				echo gp_radio_buttons('sort[by]',
 					array(
@@ -163,7 +155,7 @@ $i = 0;
 			</dl>
 		</form>
 
-		<table id="translations" class="translations table table-bordered<?php if( isset( $locale->rtl ) && $locale->rtl ) { echo ' translation-sets-rtl'; } ?>">
+		<table id="translations" class="translations table table-bordered<?php if ( 'rtl' == $locale->text_direction ) { echo ' translation-sets-rtl'; } ?>">
 			<thead>
 			<tr>
 				<?php if ( $can_approve ) : ?><th><input type="checkbox" class="checkbox" /></th><?php endif; ?>
@@ -176,7 +168,7 @@ $i = 0;
 
 			<?php
 			if ( $glossary ) {
-				$translations = map_glossary_entries_to_translations_originals( $translations, $glossary );
+				$translations = map_glossary_entries_to_translations_originals( $translations, $glossary ); 
 			}
 
 			foreach( $translations as $t ) {
