@@ -2,16 +2,16 @@
 gp_title( __('Profile &lt; GlotPress') );
 gp_breadcrumb( array( __('Profile') ) );
 
-
 $per_page = GP::$user->current()->get_meta('per_page');
-if ( 0 == $per_page )
+if ( 0 == $per_page ) {
 	$per_page = 15;
+}
 
 $default_sort = GP::$user->current()->get_meta('default_sort');
-if ( ! is_array($default_sort) ) {
+if ( ! is_array( $default_sort ) ) {
 	$default_sort = array(
 		'by' => 'priority',
-		'how' => 'DESC'
+		'how' => 'desc'
 	);
 }
 
