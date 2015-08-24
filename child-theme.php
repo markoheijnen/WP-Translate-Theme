@@ -43,7 +43,7 @@ class GP_Bootstrap_Theme extends GP_Plugin {
 			array_unshift( $locations, dirname( __FILE__ ) . '/default/' );
 		}
 		else {
-			array_unshift( $locations, $this->child_path );
+			array_unshift( $locations, dirname( __FILE__ ) . '/custom/', $this->child_path );
 		}
 
 		return $locations;
