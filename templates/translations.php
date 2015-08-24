@@ -28,7 +28,7 @@ $i = 0;
 
 			<?php
 			if ( $glossary ) {
-				echo gp_link( gp_url_project_locale( $project, $locale->slug, $translation_set->slug ) . '/glossary', __('glossary'), array( 'class'=>'btn btn-xs btn-primary' ) );
+				echo gp_link( $glossary->path(), __('glossary'), array( 'class'=>'btn btn-xs btn-primary' ) );
 			}
 			elseif( $can_approve ) {
 				echo gp_link_get( gp_url( '/glossaries/-new', array( 'translation_set_id' => $translation_set->id ) ), __( 'Create glossary' ), array( 'class'=>'btn btn-xs btn-primary' ) );
