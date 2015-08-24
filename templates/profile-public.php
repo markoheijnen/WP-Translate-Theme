@@ -62,7 +62,7 @@ gp_tmpl_header();
 									);
 								?></p>
 								<p class="ago">
-									<?php echo sprintf( __( 'last translation about %s ago (UTC)' ), $project->human_time ); ?>
+									<?php echo sprintf( __( 'last translation about %s ago (UTC)' ), gp_time_since( backpress_gmt_strtotime( $project->last_updated ) ) ); ?>
 								</p>
 							</li>
 						<?php } ?>
