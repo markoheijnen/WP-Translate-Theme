@@ -7,11 +7,14 @@ gp_tmpl_header();
 
 	<h2><?php _e('Locales and Languages'); ?></h2>
 
-	<div class="locales-filter">
-		<?php _e( 'Filter:' ); ?> <input id="locales-filter" type="text" placeholder="<?php esc_attr_e('search'); ?>" />
+	<div class="locales-filter form-inline navbar-default">
+		<div class="form-group">
+			<label for="locales-filter"><?php _e( 'Filter:' ); ?></label>
+			<input id="locales-filter" type="text" placeholder="<?php esc_attr_e('search'); ?>" class="form-control" />
+		</div>
 	</div>
 
-	<table class="tablesorter locales table table-striped">
+	<table class="locales tablesorter table table-striped table-bordered table-hover">
 		<thead>
 		<tr>
 			<th class="header"><?php _e( 'Name (in English)' );?></th>

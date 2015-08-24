@@ -209,6 +209,14 @@ body {
 }
 
 
+/* LOCALES */
+.locales-filter {
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+}
+
 
 
 
