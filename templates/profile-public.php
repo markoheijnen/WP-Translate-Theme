@@ -54,11 +54,15 @@ gp_tmpl_header();
 						<ul class="list-group">
 						<?php foreach ( $recent_projects as $project ) { ?>
 							<li class="list-group-item">
-								<p>
-									<?php echo sprintf( '%s: %s contributions', gp_link_get( $project->project_url, $project->set_name ), $project->count ); ?>
-								</p>
+								<p><?php
+									echo gp_link_get( $project->project_url, $project->set_name ) . ': ';
+									echo gp_link_get(
+										$project->project_url . '?filters[status]=either&filters[user_login]=' . $user->display_name, 
+										sprintf( _n( '%s contribution', '%s contributions',$project->count ), $project->count )
+									);
+								?></p>
 								<p class="ago">
-									<?php echo sprintf( 'last translation about %s ago (UTC)', $project->human_time ); ?>
+									<?php echo sprintf( __( 'last translation about %s ago (UTC)' ), $project->human_time ); ?>
 								</p>
 							</li>
 						<?php } ?>
