@@ -4,7 +4,7 @@ include 'hacks.php';
 
 class GP_Bootstrap_Theme extends GP_Plugin {
 	public $id                = 'bootstrap_theme';
-	const version             = '1.0';
+	const version             = '1.1-beta';
 	const bootstrap_version   = '3.3.5';
 	const glotpress_changeset = '1111';
 
