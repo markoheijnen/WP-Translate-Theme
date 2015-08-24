@@ -7,13 +7,7 @@ if ( 0 == $per_page ) {
 	$per_page = 15;
 }
 
-$default_sort = GP::$user->current()->get_meta('default_sort');
-if ( ! is_array( $default_sort ) ) {
-	$default_sort = array(
-		'by' => 'priority',
-		'how' => 'desc'
-	);
-}
+$default_sort = GP::$user->current()->sort_defaults();
 
 if ( GP_Bootstrap_Theme::has_feature('profile') ) {
 	wp_enqueue_script( 'goog-jsapi' ); 
