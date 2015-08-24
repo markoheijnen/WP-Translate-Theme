@@ -45,7 +45,7 @@
 					?>
 
 					<li><a href="<?php echo gp_url('/logout')?>"><?php _e('Log out'); ?></a></li>
-					<?php else: ?>
+					<?php elseif( ! GP_INSTALLING ): ?>
 
 					<li><a href="<?php echo gp_url_login(); ?>"><?php _e('Log in'); ?></a></li>
 					<?php endif; ?>
