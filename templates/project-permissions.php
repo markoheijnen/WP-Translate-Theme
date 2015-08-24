@@ -24,7 +24,7 @@ gp_tmpl_header();
 						<span class="permission-action"><?php _e('user'); ?></span>
 						<?php
 						if ( GP_Bootstrap_Theme::has_feature('profile') ) {
-							echo '<span class="user">' . sprintf( '<a href="%s">%s</a>', gp_url( '/profile/' . $permission->user->user_nicename ), $permission->user->user_login ) . '</span>';
+							echo '<span class="user">' . sprintf( '<a href="%s">%s</a>', gp_url_profile( $permission->user->user_nicename ), esc_html( $permission->user->user_login ) ) . '</span>';
 						} else {
 							echo '<span class="user">' . esc_html( $permission->user->user_login ) . '</span>';
 						}
@@ -48,7 +48,7 @@ gp_tmpl_header();
 					<span class="permission-action"><?php _e('user'); ?></span>
 					<?php
 					if ( GP_Bootstrap_Theme::has_feature('profile') ) {
-						echo '<span class="user">' . sprintf( '<a href="%s">%s</a>', gp_url( '/profile/' . $permission->user->user_nicename ), $permission->user->user_login ) . '</span>';
+						echo '<span class="user">' . sprintf( '<a href="%s">%s</a>', gp_url_profile( $permission->user->user_nicename ), esc_html( $permission->user->user_login ) ) . '</span>';
 					} else {
 						echo '<span class="user">' . esc_html( $permission->user->user_login ) . '</span>';
 					}

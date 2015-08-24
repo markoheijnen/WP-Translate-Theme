@@ -2,12 +2,7 @@
 gp_title( __('Profile &lt; GlotPress') );
 gp_breadcrumb( array( __('Profile') ) );
 
-wp_enqueue_script( 'goog-jsapi' );
-wp_enqueue_script( 'goog-charts' );
-wp_localize_script( 'goog-charts', 'days', $dates );
 gp_tmpl_header();
-
-$grav_url = 'http://www.gravatar.com/avatar/' . md5( strtolower( $user->user_email ) ) . '?s=150';
 ?>
 
 		<div id="profile">
@@ -23,28 +18,27 @@ $grav_url = 'http://www.gravatar.com/avatar/' . md5( strtolower( $user->user_ema
 			<div class="panel panel-default">
 				<div class="row">
 					<div class="col-xs-12 col-sm-3 text-center">
-						<img src="<?php echo $grav_url; ?>" alt="" class="center-block img-circle img-responsive">
+						<img src="<?php echo $user->get_avatar(); ?>" alt="" class="center-block img-circle img-responsive">
 					</div>
 
 					<div class="col-xs-12 col-sm-9">
 						<h3 id="user-display-name">
-							<?php echo $user_display_name; ?> 
+							<?php echo $user->display_name; ?> 
 							<?php
-							if ( $user_is_admin ) {
+							if ( $user->admin() ) {
 								_e('(Admin)');
 							};
 							?>
 						</h3>
 
 						<p>
-							<strong>About:</strong> 
 							<?php echo vsprintf( _n('%s is a polyglot who contributes to %s',
-															'%s is a polyglot who knows %s but also knows %s.', count( $locale_data ) ),
-															array_merge( array( $user_display_name ), array_keys( $locale_data ) ) ); ?>
+															'%s is a polyglot who knows %s but also knows %s.', count( $locales ) ),
+															array_merge( array( $user->display_name ), array_keys( $locales ) ) ); ?>
 						</p>
 						<p>
-							<strong>Member Since:</strong>
-							<?php echo date( 'M j, Y', strtotime( $user_registered ) ); ?>
+							<strong><?php _e( 'Member Since' ); ?></strong>
+							<?php echo date( 'M j, Y', strtotime( $user->user_registered ) ); ?>
 						</p>
 					</div>
 				</div>
@@ -54,17 +48,17 @@ $grav_url = 'http://www.gravatar.com/avatar/' . md5( strtolower( $user->user_ema
 				<div class="recent-projects col-sm-6">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h3 class="panel-title">Recent Projects</h3>
+							<h3 class="panel-title">><?php _e( 'Recent Projects' ); ?></h3>
 						</div>
 
 						<ul class="list-group">
-						<?php foreach ( $recent_actions as $action ) { ?>
+						<?php foreach ( $recent_projects as $project ) { ?>
 							<li class="list-group-item">
 								<p>
-									<?php echo sprintf( '%s: %s contributions', gp_link_get( $action->project_url, $action->set_name ), $action->count ); ?>
+									<?php echo sprintf( '%s: %s contributions', gp_link_get( $project->project_url, $project->set_name ), $project->count ); ?>
 								</p>
 								<p class="ago">
-									<?php echo sprintf( 'last translation about %s ago (UTC)', $action->human_time ); ?>
+									<?php echo sprintf( 'last translation about %s ago (UTC)', $project->human_time ); ?>
 								</p>
 							</li>
 						<?php } ?>
@@ -75,7 +69,7 @@ $grav_url = 'http://www.gravatar.com/avatar/' . md5( strtolower( $user->user_ema
 				<div class="validates-projects col-sm-6">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h3 class="panel-title">Validator of</h3>
+							<h3 class="panel-title"><?php _e( 'Validator to' ); ?></h3>
 						</div>
 
 						<?php if ( count( $permissions) >= 1 ) { ?>
@@ -89,25 +83,12 @@ $grav_url = 'http://www.gravatar.com/avatar/' . md5( strtolower( $user->user_ema
 						<?php } else { ?>
 							<div class="panel-body">
 								<p>
-									<?php echo sprintf( '%s is not validating any projects!', $user_display_name ); ?>
+									<?php echo sprintf( '%s is not validating any projects!', $user->display_name ); ?>
 								</p>
 						</div>
 						<?php } ?>
 					</div>
 				</div>
 			</div>
-
-			<div id="profile">
-				<div id="statistics">
-					<h3>Statistics:</h3>
-					<p>
-						<strong><?php echo $total_strings; ?></strong> <?php _e( 'Strings Translated' ); ?>
-						<strong><?php echo $project_contrib_count; ?></strong> <?php _e( 'Projects Contributed to' ); ?>
-					</p>
-
-					<div id="week-progress"></div>
-				</div>
-			</div>
-		</div>
 
 <?php gp_tmpl_footer();
