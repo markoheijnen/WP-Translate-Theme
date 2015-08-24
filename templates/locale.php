@@ -13,7 +13,7 @@ gp_breadcrumb( $breadcrumb );
 gp_tmpl_header();
 ?>
 
-	<h2><?php printf( __( 'Active Projects translated to %s' ), esc_html( $locale->english_name ) ); ?></h2>
+	<h2><?php printf( __( 'Active Projects translated to %s' ), '<span>' . esc_html( $locale->english_name ) . '</span>' ); ?></h2>
 
 	<?php if ( count( $set_list ) > 1 ) : ?>
 		<p class="actionlist secondary">
@@ -31,7 +31,7 @@ gp_tmpl_header();
 		<div class="locale-project">
 			<h3><?php echo ( $projects[$project_id]->name );?></h3>
 
-			<table class="locale-sub-projects">
+			<table class="locale-sub-projects table table-striped">
 				<thead>
 				<tr>
 					<th class="header" <?php if (count($sub_projects)>1 ) echo 'rowspan="'. count($sub_projects) . '"';?>><?php if (count($sub_projects)>1 ) _e( 'Project' ); ?></th>
