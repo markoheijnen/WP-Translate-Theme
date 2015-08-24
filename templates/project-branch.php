@@ -37,7 +37,7 @@ gp_tmpl_header();
 				<label for="project[source_url_template]" class="col-sm-4 col-md-3 control-label"><?php _e('Source file URL'); ?></label>
 				<div class="col-sm-4">
 					<input type="text" id="project[source_url_template]" class="form-control" name="project[source_url_template]" value="<?php echo esc_html( $project->source_url_template ); ?>" />
-					<small><?php _e('Public URL to a source file in the project. You can use <code>%file%</code> and <code>%line%</code>. Ex. <code>http://trac.example.org/browser/%file%#L%line%</code>'); ?></small>
+					<small><?php _e('Public URL to a source file in the project. You can use <code>%file%</code> and <code>%line%</code>. Ex. <code>https://trac.example.org/browser/%file%#L%line%</code>'); ?></small>
 				</div>
 			</div>
 
