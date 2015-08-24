@@ -31,11 +31,16 @@ gp_tmpl_header();
 							?>
 						</h3>
 
-						<p>
-							<?php echo vsprintf( _n('%s is a polyglot who contributes to %s',
-															'%s is a polyglot who knows %s but also knows %s.', count( $locales ) ),
-															array_merge( array( $user->display_name ), array_keys( $locales ) ) ); ?>
-						</p>
+						<p><?php
+							$locale_keys = array_keys( $locales );
+
+							if ( 1 < count( $locales ) ) {
+								vprintf( __( '%s is a polyglot who knows %s but also knows %s.' ), array_merge( array( $user->display_name ), $locale_keys ) );
+							}
+							else {
+								printf( __( '%s is a polyglot who contributes to %s' ), $user->display_name, $locale_keys[0] );
+							}
+						?></p>
 						<p>
 							<strong><?php _e( 'Member Since' ); ?></strong>
 							<?php echo date( 'M j, Y', strtotime( $user->user_registered ) ); ?>
