@@ -43,8 +43,8 @@ gp_tmpl_header();
 				<table class="translation-sets tablesorter table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th><?php _e( 'Language' ); ?></th>
-							<th><?php echo _x( '%', 'language translation percent header' ); ?></th>
+							<th><?php _e( 'Locale' ); ?></th>
+							<th><?php echo _x( '%', 'locale translation percent header' ); ?></th>
 							<th><?php _e( 'Translated' ); ?></th>
 							<th><?php _e( 'Fuzzy' ); ?></th>
 							<th><?php _e( 'Untranslated' ); ?></th>
